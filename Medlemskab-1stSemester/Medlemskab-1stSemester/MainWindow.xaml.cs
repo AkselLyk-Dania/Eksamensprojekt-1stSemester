@@ -23,6 +23,7 @@ namespace Medlemskab_1stSemester
         public MainWindow()
         {
             InitializeComponent();
+            //Test
         }
     }
 }
