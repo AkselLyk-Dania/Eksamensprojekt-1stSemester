@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Medlemskab_1stSemester"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Dansk Data" Height="450" Width="800">
     <Grid>
-        
+        <StackPanel>
+            <Image Source="/Resources/Logo.png" Width="200" Height="157" Margin="0,-10,0,0"/>
+        </StackPanel>
+
+        <ListBox x:Name="MemberList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="40,20,605,205" IsSynchronizedWithCurrentItem="True"/>
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="605,20,40,205"/>
+        <Button x:Name="Opret_Bruger" Content="Opret Bruger" HorizontalAlignment="Left" Margin="70,243,0,0" VerticalAlignment="Top" Height="19" Width="96" Click="Opret_Bruger_Click"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="70,262,0,0" VerticalAlignment="Top" Height="19" Width="96"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="70,281,0,0" VerticalAlignment="Top" Height="19" Width="96"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="634,243,0,0" VerticalAlignment="Top" Height="19" Width="96"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="634,262,0,0" VerticalAlignment="Top" Height="19" Width="96"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="634,281,0,0" VerticalAlignment="Top" Height="19" Width="96"/>
+        <TextBox HorizontalAlignment="Center" Margin="0,125,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="152" Height="210"/>
+        <Button Content="Button" HorizontalAlignment="Center" Margin="0,369,0,0" VerticalAlignment="Top" Height="23" Width="100"/>
     </Grid>
 </Window>

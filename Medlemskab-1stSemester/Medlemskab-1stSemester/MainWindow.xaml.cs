@@ -23,7 +23,22 @@ namespace Medlemskab_1stSemester
         public MainWindow()
         {
             InitializeComponent();
-            //Test
+
+            OpenMainWin();
+        }
+
+        private void OpenMainWin()
+        {
+
+        }
+
+        ItemCollection members = new ItemCollection(); //Medlemmer
+        ItemCollection activities = new ItemCollection(); //kurser
+
+        private void Opret_Bruger_Click(object sender, RoutedEventArgs e)
+        {
+            AddUserWin window = new AddUserWin();
+            window.ShowDialog();
         }
     }
 }
