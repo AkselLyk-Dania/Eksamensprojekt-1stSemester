@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,8 +38,27 @@ namespace Medlemskab_1stSemester
 
         private void Opret_Bruger_Click(object sender, RoutedEventArgs e)
         {
-            AddUserWin window = new AddUserWin(members);
+            AddUserWin window = new AddUserWin(members,MemberList,AddLog);
             window.ShowDialog();
+        }
+
+        private void EditUser_Click(object sender, RoutedEventArgs e)
+        {
+            if (MemberList.SelectedIndex != -1)
+            {
+                EditUserWin window = new EditUserWin(MemberList);
+                window.ShowDialog();
+            }
+            else MessageBox.Show("Tryk på en bruger i listen for at redigere");
+        }
+
+        private void DeleteUser_Click(object sender, RoutedEventArgs e)
+        {
+            if (MemberList.SelectedIndex != -1)
+            {
+                MemberList.Items.RemoveAt(MemberList.SelectedIndex);
+            }
+            else MessageBox.Show("Tryk på en bruger i listen for at slette");
         }
     }
 }

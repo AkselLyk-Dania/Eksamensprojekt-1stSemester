@@ -16,7 +16,7 @@
         <TextBox x:Name="UserText" HorizontalAlignment="Center" Margin="0,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206" Height="30"/>
 
         <Button x:Name="AddUser" Content="Opret" HorizontalAlignment="Left" Margin="73,130,0,0" VerticalAlignment="Top" Height="26" Width="100" Click="AddUser_Click"/>
-        <Button x:Name="CancelUser" Content="Annuller" HorizontalAlignment="Left" Margin="279,130,0,0" VerticalAlignment="Top" Height="26" Width="100"/>
+        <Button x:Name="CancelUser" Content="Annuller" HorizontalAlignment="Left" Margin="279,130,0,0" VerticalAlignment="Top" Height="26" Width="100" Click="CancelUser_Click"/>
 
     </Grid>
 </Window>

@@ -22,18 +22,31 @@ namespace Medlemskab_1stSemester
     public partial class AddUserWin : Window
     {
         ItemCollection users;
-        public AddUserWin(ItemCollection users)
+        ListBox listbox;
+        ListBox textbox;
+        public AddUserWin(ItemCollection users, ListBox listbox, ListBox textbox)
         {
             this.users = users;
+            this.listbox = listbox;
+            this.textbox = textbox;
             InitializeComponent();
         }
 
         private void AddUser_Click(object sender, RoutedEventArgs e)
         {
-            string titleInput = UserText.Text;
+            string titleInput = UserText.Text + " | ID: ";
+            Random random = new Random();
+            string randomnum = "b" + random.Next(10, 999).ToString();
 
-            Item member = new Item(titleInput, 15);
+            Item member = new Item(titleInput, randomnum);
             users.list.Add(member);
+            listbox.Items.Add(member.name+member.iD);
+            textbox.Items.Add(UserText.Text + " var oprettet som bruger med ID: " + randomnum);
+            this.Close();
+        }
+
+        private void CancelUser_Click(object sender, RoutedEventArgs e)
+        {
             this.Close();
         }
     }

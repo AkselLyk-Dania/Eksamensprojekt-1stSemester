@@ -8,10 +8,10 @@ namespace Medlemskab_1stSemester
 {
     public class Item
     {
-        public int iD;
+        public string iD;
         public string name;
 
-        public Item(string navn, int iD)
+        public Item(string navn, string iD)
         {
             this.name = navn;
             this.iD = iD;
