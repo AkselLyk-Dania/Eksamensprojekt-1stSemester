@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Medlemskab_1stSemester;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -20,8 +21,10 @@ namespace Medlemskab_1stSemester
     /// </summary>
     public partial class AddUserWin : Window
     {
-        public AddUserWin()
+        ItemCollection users;
+        public AddUserWin(ItemCollection users)
         {
+            this.users = users;
             InitializeComponent();
         }
 
@@ -30,7 +33,7 @@ namespace Medlemskab_1stSemester
             string titleInput = UserText.Text;
 
             Item member = new Item(titleInput, 15);
-
+            users.list.Add(member);
             this.Close();
         }
     }

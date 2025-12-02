@@ -37,7 +37,7 @@ namespace Medlemskab_1stSemester
 
         private void Opret_Bruger_Click(object sender, RoutedEventArgs e)
         {
-            AddUserWin window = new AddUserWin();
+            AddUserWin window = new AddUserWin(members);
             window.ShowDialog();
         }
     }
