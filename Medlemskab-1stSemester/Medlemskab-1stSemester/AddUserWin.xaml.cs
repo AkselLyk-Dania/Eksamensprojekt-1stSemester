@@ -34,15 +34,18 @@ namespace Medlemskab_1stSemester
 
         private void AddUser_Click(object sender, RoutedEventArgs e)
         {
-            string titleInput = UserText.Text + " | ID: ";
-            Random random = new Random();
-            string randomnum = "b" + random.Next(10, 999).ToString();
+            string titleInput = UserText.Text;
+            if (!string.IsNullOrEmpty(UserText.Text) && !titleInput.Any(x => Char.IsNumber(x)))
+            {
+                Member member = new Member(titleInput, 15);
+                users.mlist.Add(member);
+                int index = users.mlist.Count();
 
-            Item member = new Item(titleInput, randomnum);
-            users.list.Add(member);
-            listbox.Items.Add(member.name+member.iD);
-            textbox.Items.Add(UserText.Text + " var oprettet som bruger med ID: " + randomnum);
-            this.Close();
+                listbox.Items.Add(index + ". " + member.name);
+                textbox.Items.Add(UserText.Text + " var oprettet som medlem");
+                this.Close();
+            }
+            if(titleInput.Any(x => Char.IsNumber(x))) MessageBox.Show("Vær venligst ikke at bruge numre i teksten");
         }
 
         private void CancelUser_Click(object sender, RoutedEventArgs e)

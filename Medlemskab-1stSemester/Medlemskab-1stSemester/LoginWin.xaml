@@ -1,0 +1,15 @@
+﻿<Window x:Class="Medlemskab_1stSemester.LoginWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Medlemskab_1stSemester"
+        mc:Ignorable="d"
+        Title="Login" Height="300" Width="500">
+    <Grid>
+        <ListBox x:Name="AdminList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="96,48,96,106"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,16,0,0" TextWrapping="Wrap" Text="Vælg en administrator for at logge ind" VerticalAlignment="Top" Width="284" FontSize="16"/>
+        <Button x:Name="TryLogin" Content="Login" HorizontalAlignment="Center" Margin="0,189,0,0" VerticalAlignment="Top" Height="30" Width="140" Click="TryLogin_Click"/>
+
+    </Grid>
+</Window>
