@@ -11,18 +11,19 @@ namespace Medlemskab_1stSemester
         public string[,] membersList = //Multi-dimensionel array med medlemmer og alder som oprettes til start
          {
             { "Hans Holm", "Simon Kjærsgaard", "Gitte Lund", "Simone Jensen", "Troels Dahl", "Kaj Hedelund Vestergaard", "Andrea Lundbæk", "Sebastian Thomsen", "Emil Thorsted", "Hans Henrik Dynesen" },
-            { "34", "21", "37", "19", "24", "29", "18", "22", "32", "28" }
+            { "Privat", "Student", "Privat", "Student", "Student", "Student", "Student", "Student", "Privat", "Privat" }
         };
 
-       public string[,] adminsList = //Multi-dimensionel array med tilgængelige admins med brugernavn og rigtige navn
+       public string[] adminsList = //Array med tilgængelige admins
         {
-          { "SejeErik599", "TheCoolerDaniel0909", "MegaMarie1227" },
-          { "Erik", "Daniel", "Marie" }
+          "Erik",
+          "Daniel",
+          "Marie"
         };
 
         public string[] activitiesList = //Tilgængelige kurser hvor første er optaget
          {
-          "Datamatiker",
+          "Datamatiker (Optaget)",
           "IT-Supporter",
           "SoftwareUdvikler",
           "Web Designer",

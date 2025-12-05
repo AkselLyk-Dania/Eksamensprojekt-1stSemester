@@ -7,13 +7,16 @@
         mc:Ignorable="d"
         Title="Rediger Bruger" Height="266" Width="450">
     <Grid>
-        <TextBlock HorizontalAlignment="Center" Margin="0,30,0,0" TextWrapping="Wrap" Text="Rediger Bruger" VerticalAlignment="Top" Height="24" Width="114" FontWeight="Bold" FontSize="16"/>
-        <TextBlock Grid.Column="0" Text="Bruger ID:" FontSize="15" VerticalAlignment="Top" Margin="58,69,304,0" Height="24"/>
-        <TextBlock Grid.Column="0" Text="Nyt Navn:" FontSize="15" VerticalAlignment="Top" Margin="58,117,304,0" Height="24"/>
-        <TextBox x:Name="EditUserID" HorizontalAlignment="Center" Margin="0,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="157" Height="30"/>
-        <TextBox x:Name="EditUserText" HorizontalAlignment="Center" Margin="0,114,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" Height="30"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,30,0,0" TextWrapping="Wrap" Text="Rediger Medlem" VerticalAlignment="Top" Height="24" Width="128" FontWeight="Bold" FontSize="16"/>
+        <TextBlock Grid.Column="0" Text="Nyt Navn:" FontSize="15" VerticalAlignment="Top" Margin="58,69,304,0" Height="24"/>
+        <TextBox x:Name="EditUserName" HorizontalAlignment="Center" Margin="0,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="158" Height="30"/>
         <Button x:Name="EditUserConfirm" Content="Godkend" HorizontalAlignment="Center" Margin="0,156,0,0" VerticalAlignment="Top" Width="74" Click="EditUserConfirm_Click"/>
         <Button x:Name="CancelUserEdit" Content="Annuller" HorizontalAlignment="Center" Margin="0,188,0,0" VerticalAlignment="Top" Width="74" Click="CancelUserEdit_Click"/>
+        <CheckBox x:Name="EditStudentCheck" Content="Oprettelsen er student" HorizontalAlignment="Left" Margin="131,118,0,0" VerticalAlignment="Top" Height="18" Width="144">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
 
     </Grid>
 </Window>

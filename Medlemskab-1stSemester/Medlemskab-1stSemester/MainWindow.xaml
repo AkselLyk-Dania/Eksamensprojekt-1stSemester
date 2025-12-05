@@ -5,24 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Medlemskab_1stSemester"
         mc:Ignorable="d"
-        Title="Dansk Data" Height="450" Width="800">
+        Title="Dansk Data" Height="450" Width="900">
     <Grid>
         <StackPanel>
             <Image Source="/Resources/Logo.png" Width="220" Height="157" Margin="0,-20,0,0"/>
         </StackPanel>
 
-        <ListBox x:Name="AddLog" d:ItemsSource="{d:SampleData ItemCount=5}" IsSynchronizedWithCurrentItem="True" Height="209" Width="356"/>
-        <ListBox x:Name="MemberList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="40,47,604,178" IsSynchronizedWithCurrentItem="True"/>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="604,47,40,178"/>
-        <Button x:Name="AddUser" Content="Opret Medlem" HorizontalAlignment="Left" Margin="70,281,0,0" VerticalAlignment="Top" Height="19" Width="96" Click="Opret_Bruger_Click"/>
-        <Button x:Name="EditUser" Content="Rediger Medlem" HorizontalAlignment="Left" Margin="70,300,0,0" VerticalAlignment="Top" Height="19" Width="96" Click="EditUser_Click"/>
-        <Button x:Name="DeleteUser" Content="Slet Medlem" HorizontalAlignment="Left" Margin="70,319,0,0" VerticalAlignment="Top" Height="19" Width="96" Click="DeleteUser_Click"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="634,281,0,0" VerticalAlignment="Top" Height="19" Width="96"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="634,300,0,0" VerticalAlignment="Top" Height="19" Width="96"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="634,319,0,0" VerticalAlignment="Top" Height="19" Width="96"/>
-        <Button Content="Button" HorizontalAlignment="Center" Margin="0,336,0,0" VerticalAlignment="Top" Height="23" Width="100"/>
-        <TextBlock HorizontalAlignment="Left" Margin="68,21,0,0" TextWrapping="Wrap" Text="Medlemmer:" VerticalAlignment="Top" Width="100" FontSize="16"/>
-        <TextBlock HorizontalAlignment="Left" Margin="640,21,0,0" TextWrapping="Wrap" Text="Aktiviteter:" VerticalAlignment="Top" Width="90" FontSize="16"/>
+        <ListBox x:Name="AddLog" d:ItemsSource="{d:SampleData ItemCount=5}" IsSynchronizedWithCurrentItem="True" Margin="286,110,286,124"/>
+        <ListBox x:Name="MemberList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,47,634,178" IsSynchronizedWithCurrentItem="True"/>
+        <ListBox x:Name="ActivityList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="634,47,10,178"/>
+        <Button x:Name="AddUser" Content="Opret Medlem" HorizontalAlignment="Left" Margin="90,281,0,0" VerticalAlignment="Top" Height="19" Width="96" Click="Opret_Bruger_Click"/>
+        <Button x:Name="EditUser" Content="Rediger Medlem" HorizontalAlignment="Left" Margin="90,300,0,0" VerticalAlignment="Top" Height="19" Width="96" Click="EditUser_Click"/>
+        <Button x:Name="DeleteUser" Content="Slet Medlem" HorizontalAlignment="Left" Margin="90,319,0,0" VerticalAlignment="Top" Height="19" Width="96" Click="DeleteUser_Click"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="714,281,0,0" VerticalAlignment="Top" Height="19" Width="96"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="714,300,0,0" VerticalAlignment="Top" Height="19" Width="96"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="714,319,0,0" VerticalAlignment="Top" Height="19" Width="96"/>
+        <Button Content="Button" HorizontalAlignment="Center" Margin="0,370,0,0" VerticalAlignment="Top" Height="23" Width="100"/>
+        <TextBlock HorizontalAlignment="Left" Margin="88,21,0,0" TextWrapping="Wrap" Text="Medlemmer:" VerticalAlignment="Top" Width="100" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="747,21,0,0" TextWrapping="Wrap" Text="Kurser:" VerticalAlignment="Top" Width="63" FontSize="16"/>
         <Button x:Name="ChangeAdmin" Content="Skift Administrator" HorizontalAlignment="Left" Margin="24,367,0,0" VerticalAlignment="Top" Width="112" Click="ChangeAdmin_Click"/>
     </Grid>
 </Window>

@@ -20,39 +20,28 @@ namespace Medlemskab_1stSemester
     public partial class LoginWin : Window
     {
         ListBox textbox;
-        public LoginWin(ListBox textbox)
+        public LoginWin(ListBox textbox) //Textboksen bruges kun når man skifter administrator
         {
             InitializeComponent();
             this.textbox = textbox;
             Arrays arrays = new Arrays();
-            for (int i = 0; i < arrays.adminsList.Length / 2; i++)
-            {
-                AdminList.Items.Add(arrays.adminsList[0, i]);
+            for (int i = 0; i < arrays.adminsList.Length; i++)
+            { //Der oprettes automatisk admins fra Arrays.cs
+                AdminList.Items.Add(arrays.adminsList[i]);
             }
 
         }
 
         private void TryLogin_Click(object sender, RoutedEventArgs e)
         {
-            if (AdminList.SelectedIndex != -1)
+            if (AdminList.SelectedIndex != -1) //Hvis brugeren har valgt en administrator
             {
                 Arrays arrays = new Arrays();
-                Admin.username = arrays.adminsList[0, AdminList.SelectedIndex];
-                Admin.name = arrays.adminsList[1, AdminList.SelectedIndex];
-                if (!Admin.loggedIn)
-                {
-                    Admin.loggedIn = true;
-                    MainWindow window = new MainWindow();
-                    this.Close();
-                    window.ShowDialog();
-                }
-                else
-                {
-                    textbox.Items.Add("Du er logget ind som " + Admin.username + ". " + "Hej " + Admin.name + "!");
-                    this.Close();
-                }
+                Admin.name = arrays.adminsList[AdminList.SelectedIndex]; //Admins navn er nu den, som man har valgt
+                textbox.Items.Add("Du er logget ind som " + Admin.name + ". " + "Hej " + Admin.name + "!"); //Der oprettes information i hovedtekstboksen
+                this.Close();
             }
-            else MessageBox.Show("Tryk venligst på en administrator fra listen og tryk derefter på login");
+            else MessageBox.Show("Tryk venligst på en administrator fra listen og tryk derefter på login"); //Hvis brugeren ikke har valgt en administrator
         }
     }
 }

@@ -10,13 +10,20 @@
 
     <Grid>
 
-        <TextBlock Grid.Column="0" Text="Navn:" FontSize="15" VerticalAlignment="Top" Margin="57,70,335,0" Height="24"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,30,0,0" TextWrapping="Wrap" Text="Opret Ny Bruger" VerticalAlignment="Top" Height="24" Width="128" FontWeight="Bold" FontSize="16"/>
+        <TextBlock Grid.Column="0" Text="Navn:" FontSize="15" VerticalAlignment="Top" Margin="59,70,333,0" Height="24"/>
+        <TextBlock HorizontalAlignment="Left" Margin="158,31,0,0" TextWrapping="Wrap" Text="Opret Ny Medlem" VerticalAlignment="Top" Height="24" Width="151" FontWeight="Bold" FontSize="16"/>
 
         <TextBox x:Name="UserText" HorizontalAlignment="Center" Margin="0,67,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206" Height="30"/>
 
-        <Button x:Name="AddUser" Content="Opret" HorizontalAlignment="Left" Margin="73,130,0,0" VerticalAlignment="Top" Height="26" Width="100" Click="AddUser_Click"/>
-        <Button x:Name="CancelUser" Content="Annuller" HorizontalAlignment="Left" Margin="279,130,0,0" VerticalAlignment="Top" Height="26" Width="100" Click="CancelUser_Click"/>
+        <Button x:Name="AddUser" Content="Opret" HorizontalAlignment="Left" Margin="70,166,0,0" VerticalAlignment="Top" Height="26" Width="100" Click="AddUser_Click"/>
+        <Button x:Name="CancelUser" Content="Annuller" HorizontalAlignment="Left" Margin="279,166,0,0" VerticalAlignment="Top" Height="26" Width="100" Click="CancelUser_Click"/>
+
+
+        <CheckBox x:Name="StudentCheck" Content="Oprettelsen er student" HorizontalAlignment="Left" Margin="131,122,0,0" VerticalAlignment="Top" Height="18" Width="144">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="1.3" ScaleY="1.3"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
 
     </Grid>
 </Window>

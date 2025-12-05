@@ -20,12 +20,12 @@ namespace Medlemskab_1stSemester
 
     public class Member : Activity //Brugere, som både bruger navn og alder og nedarver kurser
     {
-        public int age;
+        public string isStudent;
         
-        public Member(string name, int age) : base(name)
+        public Member(string name, string isStudent) : base(name)
         {
             this.name = name;
-            this.age = age;
+            this.isStudent = isStudent;
         }
     }
 
