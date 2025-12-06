@@ -1,0 +1,17 @@
+﻿<Window x:Class="Medlemskab_1stSemester.EditActivityWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Medlemskab_1stSemester"
+        mc:Ignorable="d"
+        Title="Rediger Kurs" Height="250" Width="450">
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="0,35,0,0" TextWrapping="Wrap" Text="Rediger Kurs" VerticalAlignment="Top" Height="24" Width="99" FontWeight="Bold" FontSize="16"/>
+        <TextBlock Grid.Column="0" Text="Nyt Navn:" FontSize="15" VerticalAlignment="Top" Margin="58,77,304,0" Height="24"/>
+        <Button x:Name="EditActivityConfirm" Content="Godkend" HorizontalAlignment="Center" Margin="0,131,0,0" VerticalAlignment="Top" Width="74" Click="EditActivityConfirm_Click"/>
+        <Button x:Name="CancelActivityEdit" Content="Annuller" HorizontalAlignment="Center" Margin="0,163,0,0" VerticalAlignment="Top" Width="74" Click="CancelActivityEdit_Click"/>
+        <TextBox x:Name="ActivityInput" HorizontalAlignment="Left" Margin="142,80,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="142" Height="21"/>
+
+    </Grid>
+</Window>

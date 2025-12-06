@@ -55,11 +55,11 @@ namespace Medlemskab_1stSemester
                     student = "Privat";
                     typeStudent = student.ToLower();
                 }
-                string oldMember = (member.name + " | " + member.isStudent); //Det her bruges til informationsboksen som viser hvad der var før ændringen
+                string oldMember = member.name + " | " + member.isStudent; //Det her bruges til informationsboksen som viser hvad der var før ændringen
                 member.name = titleInput; //Opdateres med nyt navn
                 member.isStudent = student; //Og student/privat
-                string newMember = (member.name + " | " + member.isStudent); //Bruges også til informationsboksen, som viser den nye ændring
-                listbox.Items[index] = (index + 1 + ". " + member.name + " | " + member.isStudent); //Listen opdateres med nyt navn og student/privat
+                string newMember = member.name + " | " + member.isStudent; //Bruges også til informationsboksen, som viser den nye ændring
+                listbox.Items[index] = index + 1 + ". " + member.name + " | " + member.isStudent; //Listen opdateres med nyt navn og student/privat
 
                 textbox.Items.Add($"{Admin.name}: {oldMember} var ændret til {newMember}");
 

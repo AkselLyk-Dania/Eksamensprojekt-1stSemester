@@ -67,13 +67,58 @@ namespace Medlemskab_1stSemester
         ////////Håntering af kurser//////////
         /////////////////////////////////////
 
+        private void AddActivity_Click(object sender, RoutedEventArgs e)
+        {
+            AddActivityWin window = new AddActivityWin(activities,ActivityList,AddLog);
+            window.ShowDialog();
+        }
 
+        private void EditActivity_Click(object sender, RoutedEventArgs e)
+        {
+            if (ActivityList.SelectedIndex != -1)
+            { //SelectedIndex er index på hvilken bruger man har valgt fra listen som integer hvor den første vil started med 0, hvis ingen er valgt returnerer -1
+                EditActivityWin window = new EditActivityWin(activities, ActivityList, AddLog, ActivityList.SelectedIndex);
+                window.ShowDialog();
+            }
+            else MessageBox.Show("Tryk på et kurs i listen for at redigere");
+        }
+
+        private void DeleteActivity_Click(object sender, RoutedEventArgs e)
+        {
+            if (ActivityList.SelectedIndex != -1) //SelectedIndex er index på hvilken bruger man har valgt fra listen, hvis ingen er valgt returnerer -1
+            {
+                int index = ActivityList.SelectedIndex;
+                string name = activities.alist[index].name; //Få kursets navn
+                if (MessageBox.Show($"Er du sikker på at du vil slette {name}?", "Slet Kurs", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+                    string temp;
+                    int add = 1;
+                    int counter = 0;
+                    ActivityList.Items.RemoveAt(index); //Fjern brugeren fra listboxen
+                    activities.alist.RemoveAt(index); //Også fra listen
+                    for (int i = 0; i < activities.alist.Count(); i++) //Et loop der går igennem alle fra listen i listboxen og opdaterer rækkefølgen (første tal)
+                    {
+                        temp = ActivityList.Items[i].ToString(); //find nummer i som string som er temp
+                        counter++;
+                        if (counter >= 9) //hvis nummeret er større eller 9, vil der fjernes flere characters fra temp.Substring
+                        {
+                            counter = 0;
+                            add++;
+                        }
+                        temp = i + 1 + temp.Substring(add); //temp er nu (i + 1) plus temp hvor antal characters ikke er talt med
+                        ActivityList.Items[i] = temp; //Skift listen ud med temp
+                    }
+                    AddLog.Items.Add(Admin.name + ": " + name + " var slettet fra listen med kurser"); //Skriv en opdatering på informationsboxen
+                }
+            }
+            else MessageBox.Show("Vælg et kurs ved at klikke på brugeren i listen for at slette"); //Hvis ingen er valgt i listen
+        }
 
         /////////////////////////////////////
         ////////Håntering af medlemmer///////
         /////////////////////////////////////
 
-        private void Opret_Bruger_Click(object sender, RoutedEventArgs e) //Opret en bruger
+        private void AddUser_Click(object sender, RoutedEventArgs e) //Opret en bruger
         {
             AddUserWin window = new AddUserWin(members,MemberList,AddLog); //Der laves et objekt fra AddUserWin med variabler, som bruges til når du skal åbne vinduet
             window.ShowDialog(); //Vinduet med oprettelse af bruger åbnes

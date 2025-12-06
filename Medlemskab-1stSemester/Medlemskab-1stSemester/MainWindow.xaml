@@ -14,12 +14,12 @@
         <ListBox x:Name="AddLog" d:ItemsSource="{d:SampleData ItemCount=5}" IsSynchronizedWithCurrentItem="True" Margin="286,110,286,124"/>
         <ListBox x:Name="MemberList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,47,634,178" IsSynchronizedWithCurrentItem="True"/>
         <ListBox x:Name="ActivityList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="634,47,10,178"/>
-        <Button x:Name="AddUser" Content="Opret Medlem" HorizontalAlignment="Left" Margin="90,281,0,0" VerticalAlignment="Top" Height="19" Width="96" Click="Opret_Bruger_Click"/>
+        <Button x:Name="AddUser" Content="Opret Medlem" HorizontalAlignment="Left" Margin="90,281,0,0" VerticalAlignment="Top" Height="19" Width="96" Click="AddUser_Click"/>
         <Button x:Name="EditUser" Content="Rediger Medlem" HorizontalAlignment="Left" Margin="90,300,0,0" VerticalAlignment="Top" Height="19" Width="96" Click="EditUser_Click"/>
         <Button x:Name="DeleteUser" Content="Slet Medlem" HorizontalAlignment="Left" Margin="90,319,0,0" VerticalAlignment="Top" Height="19" Width="96" Click="DeleteUser_Click"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="714,281,0,0" VerticalAlignment="Top" Height="19" Width="96"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="714,300,0,0" VerticalAlignment="Top" Height="19" Width="96"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="714,319,0,0" VerticalAlignment="Top" Height="19" Width="96"/>
+        <Button x:Name="AddActivity" Content="Opret kurs" HorizontalAlignment="Left" Margin="714,281,0,0" VerticalAlignment="Top" Height="19" Width="96" Click="AddActivity_Click"/>
+        <Button x:Name="EditActivity" Content="Rediger Kurs" HorizontalAlignment="Left" Margin="714,300,0,0" VerticalAlignment="Top" Height="19" Width="96" Click="EditActivity_Click"/>
+        <Button x:Name="DeleteActivity" Content="Slet Kurs" HorizontalAlignment="Left" Margin="714,319,0,0" VerticalAlignment="Top" Height="19" Width="96" Click="DeleteActivity_Click"/>
         <Button Content="Button" HorizontalAlignment="Center" Margin="0,370,0,0" VerticalAlignment="Top" Height="23" Width="100"/>
         <TextBlock HorizontalAlignment="Left" Margin="88,21,0,0" TextWrapping="Wrap" Text="Medlemmer:" VerticalAlignment="Top" Width="100" FontSize="16"/>
         <TextBlock HorizontalAlignment="Left" Margin="747,21,0,0" TextWrapping="Wrap" Text="Kurser:" VerticalAlignment="Top" Width="63" FontSize="16"/>

@@ -55,7 +55,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AddActivityWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AddUserWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditActivityWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -71,6 +79,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="AddActivityWin.xaml.cs">
+      <DependentUpon>AddActivityWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddUserWin.xaml.cs">
       <DependentUpon>AddUserWin.xaml</DependentUpon>
     </Compile>
@@ -82,6 +93,9 @@
     <Compile Include="Classes\Items.cs" />
     <Compile Include="Classes\ItemCollection.cs" />
     <Compile Include="Classes\Admin.cs" />
+    <Compile Include="EditActivityWin.xaml.cs">
+      <DependentUpon>EditActivityWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditUserWin.xaml.cs">
       <DependentUpon>EditUserWin.xaml</DependentUpon>
     </Compile>
