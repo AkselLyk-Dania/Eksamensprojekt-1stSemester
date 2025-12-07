@@ -51,7 +51,7 @@ namespace Medlemskab_1stSemester
                 }
                 Member member = new Member(titleInput, student); //laves et nyt Member objekt med navn og student/privat
                 users.mlist.Add(member); //Bliver tilføjet til listen
-                int index = users.mlist.Count(); //medlemsnummer
+                int index = Admin.GetListTotal(users,true); //Find hvor mange medlemmer
 
                 listbox.Items.Add(index + ". " + member.name + " | " + member.isStudent); //Bliver tilføjet til medlemsboksen
                 textbox.Items.Add($"{Admin.name}: {UserText.Text} var oprettet som {typeStudent} medlem"); //Bliver tilføjet til informationsboksen

@@ -35,9 +35,10 @@ namespace Medlemskab_1stSemester
             string titleInput = ActivityText.Text; //Det der skrives i tekstboksen
             if (!string.IsNullOrEmpty(titleInput) && !titleInput.Any(x => Char.IsNumber(x)))
             {
-                Activity activity = new Activity(titleInput);
+                List<Member> list = new List<Member>();
+                Activity activity = new Activity(titleInput, list);
                 activities.alist.Add(activity);
-                int index = activities.alist.Count();
+                int index = Admin.GetListTotal(activities, false);
                 listbox.Items.Add($"{index}. {activity.name}");
                 textbox.Items.Add($"{Admin.name}: {titleInput} var oprettet som nyt kurs"); //Bliver tilføjet til informationsboksen
                 this.Close();

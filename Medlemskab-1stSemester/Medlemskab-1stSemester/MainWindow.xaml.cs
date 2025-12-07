@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
 using System.Reflection;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -41,9 +42,17 @@ namespace Medlemskab_1stSemester
 
                 for(int i = 0; i < arrays.activitiesList.Length; i++) ////Der oprettes kurser i listen med kurser
                 {
-                    Activity activity = new Activity(arrays.activitiesList[i]);
+                    List<Member> list = new List<Member>();
+                    Activity activity = new Activity(arrays.activitiesList[i],list);
                     activities.alist.Add(activity);
-                    ActivityList.Items.Add($"{i+1}. {activity.name}");
+                    ActivityList.Items.Add($"{i + 1}. {activity.name}");
+                    if (i == 0)
+                    {
+                        for(int l = 0; l < 5; l++)
+                        {
+                            activity.list.Add(members.mlist[i]);
+                        }
+                    }
                 }
                 OpenLogin();
             }
@@ -58,6 +67,16 @@ namespace Medlemskab_1stSemester
         private void ChangeAdmin_Click(object sender, RoutedEventArgs e) //Skift administrator
         {
             OpenLogin();
+        }
+
+        private void Registration_Click(object sender, RoutedEventArgs e)
+        {
+            if(Admin.GetListTotal(activities,false) >= 5)
+            {
+                RegistrationWin window = new RegistrationWin(activities, ActivityList);
+                window.ShowDialog();
+            }
+            else MessageBox.Show("Der skal være mindst 5 oprettede kurser før du kan fortsætte");
         }
 
         ItemCollection members = new ItemCollection(); //Medlemmer
