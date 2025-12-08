@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Medlemskab_1stSemester
 {
-    public static class Admin //Admins eller brugerens oplysninger. Klassen kan instantieres men ændre klassens variabler ved at bruge klassen selv
+    public static class Admin //Admins eller brugerens oplysninger. Klassen kan ikke instantieres men i stedet finde eller ændre klassens variabler ved at bruge klassen selv
     {
-        public static string name = "N/A"; //navn, N/A er Default
-        public static bool loggedIn = false; //hvis person åbner programmet først gang, åbner loginsiden og sætter denne bool til true
+        public static string name = "N/A"; //Navn, N/A er Default
+        public static bool loggedIn = false; //Hvis brugeren åbner programmet først gang, åbner loginsiden og sætter denne bool til true
 
 
         public static int GetListTotal(ItemCollection item, bool isMember) //En metode, der finder hvor mange der er i en liste (enten mlist eller alist)

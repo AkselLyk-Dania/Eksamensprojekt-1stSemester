@@ -20,13 +20,17 @@ namespace Medlemskab_1stSemester
     public partial class LoginWin : Window
     {
         ListBox textbox;
-        public LoginWin(ListBox textbox) //Textboksen bruges kun når man skifter administrator
+
+        //Textboksen bruges kun når man skifter administrator
+        public LoginWin(ListBox textbox)
         {
             InitializeComponent();
             this.textbox = textbox;
             Arrays arrays = new Arrays();
+
+            //Der oprettes automatisk admins fra Arrays.cs
             for (int i = 0; i < arrays.adminsList.Length; i++)
-            { //Der oprettes automatisk admins fra Arrays.cs
+            {
                 AdminList.Items.Add(arrays.adminsList[i]);
             }
 
@@ -34,14 +38,20 @@ namespace Medlemskab_1stSemester
 
         private void TryLogin_Click(object sender, RoutedEventArgs e)
         {
-            if (AdminList.SelectedIndex != -1) //Hvis brugeren har valgt en administrator
+            //Hvis brugeren har valgt en administrator
+            if (AdminList.SelectedIndex != -1)
             {
                 Arrays arrays = new Arrays();
-                Admin.name = arrays.adminsList[AdminList.SelectedIndex]; //Admins navn er nu den, som man har valgt
-                textbox.Items.Add("Du er logget ind som " + Admin.name + ". " + "Hej " + Admin.name + "!"); //Der oprettes information i hovedtekstboksen
+
+                //Admins navn er nu den, som man har valgt
+                Admin.name = arrays.adminsList[AdminList.SelectedIndex];
+
+                //Der oprettes information i hovedtekstboksen
+                textbox.Items.Add($"Du er logget ind som {Admin.name}. Hej {Admin.name}!");
                 this.Close();
             }
-            else MessageBox.Show("Tryk venligst på en administrator fra listen og tryk derefter på login"); //Hvis brugeren ikke har valgt en administrator
+            //Hvis brugeren ikke har valgt en administrator
+            else MessageBox.Show("Tryk venligst på en administrator fra listen og tryk derefter på login");
         }
     }
 }

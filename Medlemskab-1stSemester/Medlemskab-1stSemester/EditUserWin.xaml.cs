@@ -24,51 +24,84 @@ namespace Medlemskab_1stSemester
         ListBox textbox;
         ItemCollection users;
         public int index;
-        public EditUserWin(ItemCollection users, ListBox listbox, ListBox textbox, int index) //En constructor med en list, to listbokse og index integer
+
+        //En constructor med en list, to listbokse og index integer
+        public EditUserWin(ItemCollection users, ListBox listbox, ListBox textbox, int index)
         {
             InitializeComponent();
-            this.index = index; //Alle bliver kendt som det samme, som det der føres i variablerne
+
+            //Alle bliver kendt som det samme, som det der føres i variablerne
+            this.index = index;
             this.listbox = listbox;
             this.textbox = textbox;
             this.users = users;
-            Member member = users.mlist[index]; //Laver en objekt med den valgte medlem
-            EditUserName.Text = member.name; //udfylder navn i feltet, som skal ændres
-            string student = member.isStudent; //Vi får enten student eller privat
-            if (student == "Student") EditStudentCheck.IsChecked = true; //Checkboksen bliver slået til, hvis han/hun var student
+
+            //Laver en objekt med den valgte medlem
+            Member member = users.mlist[index];
+
+            //udfylder navn i feltet, som skal ændres
+            EditUserName.Text = member.name;
+
+            //Der fås enten student eller privat
+            string student = member.isStudent;
+
+            //Checkboksen bliver slået til, hvis han/hun var student
+            if (student == "Student") EditStudentCheck.IsChecked = true;
         }
 
         private void EditUserConfirm_Click(object sender, RoutedEventArgs e)
         {
-            string titleInput = EditUserName.Text; //Det der skrives i tekstboksen
-            if (!string.IsNullOrEmpty(titleInput) && !titleInput.Any(x => Char.IsNumber(x))) //Første check hvis feltet ikke er tomt, andet check hvis der ikke er numre skrevet ned
+            //Det der skrives i tekstboksen
+            string titleInput = EditUserName.Text;
+
+            //Første check hvis feltet ikke er tomt, andet check hvis der ikke er numre skrevet ned
+            if (!string.IsNullOrEmpty(titleInput) && !titleInput.Any(x => Char.IsNumber(x)))
             {
-                Member member = users.mlist[index]; //Laver en objekt med den nuværende valgte medlem
+                //Laver en objekt med den nuværende valgte medlem
+                Member member = users.mlist[index];
                 string student;
                 string typeStudent;
-                if (EditStudentCheck.IsChecked == true) //hvis checkboksen er markeret er det en student
+
+                //hvis checkboksen er markeret er det en student
+                if (EditStudentCheck.IsChecked == true)
                 {
                     student = "Student";
                     typeStudent = "studerende";
                 }
-                else //Hvis ikke er det en privat
+
+                //Hvis ikke er det en privat
+                else
                 {
                     student = "Privat";
                     typeStudent = student.ToLower();
                 }
-                string oldMember = member.name + " | " + member.isStudent; //Det her bruges til informationsboksen som viser hvad der var før ændringen
-                member.name = titleInput; //Opdateres med nyt navn
-                member.isStudent = student; //Og student/privat
-                string newMember = member.name + " | " + member.isStudent; //Bruges også til informationsboksen, som viser den nye ændring
-                listbox.Items[index] = index + 1 + ". " + member.name + " | " + member.isStudent; //Listen opdateres med nyt navn og student/privat
 
+                //Det her bruges til informationsboksen som viser hvad der var før ændringen
+                string oldMember = member.name + " | " + member.isStudent;
+
+                //Opdateres med nyt navn
+                member.name = titleInput;
+
+                //Og student/privat
+                member.isStudent = student;
+
+                //Bruges også til informationsboksen, som viser den nye ændring
+                string newMember = member.name + " | " + member.isStudent;
+
+                //Listen opdateres med nyt navn og student/privat
+                listbox.Items[index] = index + 1 + ". " + member.name + " | " + member.isStudent;
+
+                //Tekst til informationsboksen
                 textbox.Items.Add($"{Admin.name}: {oldMember} var ændret til {newMember}");
 
                 this.Close();
             }
-            if (titleInput.Any(x => Char.IsNumber(x))) MessageBox.Show("Vær venligst ikke at bruge numre i navnefeltet"); //Hvis der er skrevet numre, vises dette
+
+            //Hvis der er skrevet numre, vises dette
+            if (titleInput.Any(x => Char.IsNumber(x))) MessageBox.Show("Vær venligst ikke at bruge numre i navnefeltet");
         }
 
-        private void CancelUserEdit_Click(object sender, RoutedEventArgs e)
+        private void CancelUserEdit_Click(object sender, RoutedEventArgs e) //Annuller
         {
             this.Close();
         }

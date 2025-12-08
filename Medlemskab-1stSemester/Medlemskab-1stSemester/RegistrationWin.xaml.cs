@@ -20,14 +20,19 @@ namespace Medlemskab_1stSemester
     public partial class RegistrationWin : Window
     {
         ItemCollection activities;
+        ItemCollection members;
         ListBox listbox;
-        public RegistrationWin(ItemCollection activities, ListBox listbox)
+        ListBox textbox;
+        public RegistrationWin(ItemCollection activities, ItemCollection members, ListBox listbox, ListBox textbox)
         {
             this.listbox = listbox;
+            this.textbox = textbox;
             this.activities = activities;
+            this.members = members;
             InitializeComponent();
-            ActivityList.Items.Clear();
 
+            //Listen af aktiviteter bliver opdateret
+            ActivityList.Items.Clear();
             for(int i = 0; i < listbox.Items.Count; i++)
             {
                 ActivityList.Items.Add(listbox.Items[i]);
@@ -37,14 +42,18 @@ namespace Medlemskab_1stSemester
 
         private void ToRegistration_Click(object sender, RoutedEventArgs e)
         {
+            //Hvis der er en kurs der er valgt
             if (ActivityList.SelectedIndex != -1)
             {
-
+                //Nyt vindue åbnes med administrering af den valgte kurs
+                EditRegistrationWin window = new EditRegistrationWin(activities, members, listbox, textbox, ActivityList.SelectedIndex);
+                this.Close();
+                window.ShowDialog();
             }
             else MessageBox.Show("Tryk på et kurs i listen for at fortsætte");
         }
 
-        private void CancelRegistration_Click(object sender, RoutedEventArgs e)
+        private void CancelRegistration_Click(object sender, RoutedEventArgs e) //Annuller
         {
             this.Close();
         }

@@ -24,29 +24,42 @@ namespace Medlemskab_1stSemester
         ListBox textbox;
         public AddActivityWin(ItemCollection activities, ListBox listbox, ListBox textbox)
         {
+            //Alle variabler bliver lavet ens med objekterne
             this.activities = activities;
             this.listbox = listbox;
             this.textbox = textbox;
             InitializeComponent();
         }
 
-        private void AddActivity_Click(object sender, RoutedEventArgs e)
+        private void AddActivity_Click(object sender, RoutedEventArgs e) //Opret kurs
         {
-            string titleInput = ActivityText.Text; //Det der skrives i tekstboksen
+            //Det der skrives i tekstboksen
+            string titleInput = ActivityText.Text;
+
+            //Første check er hvis tekstboksen ikke er tom, andet er hvis numre er brugt
             if (!string.IsNullOrEmpty(titleInput) && !titleInput.Any(x => Char.IsNumber(x)))
             {
+                //Kurs bliver oprettet med navn der er skrevet og med en tom liste
                 List<Member> list = new List<Member>();
                 Activity activity = new Activity(titleInput, list);
                 activities.alist.Add(activity);
+
+                //En metode bliver brugt, som tæller alle kurser i listen
                 int index = Admin.GetListTotal(activities, false);
+
+                //Kurs bliver tilføjet til listboksen
                 listbox.Items.Add($"{index}. {activity.name}");
-                textbox.Items.Add($"{Admin.name}: {titleInput} var oprettet som nyt kurs"); //Bliver tilføjet til informationsboksen
+
+                //Bliver også tilføjet til informationsboksen
+                textbox.Items.Add($"{Admin.name}: {titleInput} var oprettet som nyt kurs");
                 this.Close();
             }
-            if (titleInput.Any(x => Char.IsNumber(x))) MessageBox.Show("Vær venligst ikke at bruge numre i navnefeltet"); //Hvis der er skrevet numre, vises dette
+
+            //Hvis der er skrevet numre, vises dette
+            if (titleInput.Any(x => Char.IsNumber(x))) MessageBox.Show("Vær venligst ikke at bruge numre i navnefeltet");
         }
 
-        private void CancelActivity_Click(object sender, RoutedEventArgs e)
+        private void CancelActivity_Click(object sender, RoutedEventArgs e) //Annuller
         {
             this.Close();
         }

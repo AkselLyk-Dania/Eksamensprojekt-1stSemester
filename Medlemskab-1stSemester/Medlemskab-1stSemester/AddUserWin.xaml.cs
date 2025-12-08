@@ -24,7 +24,9 @@ namespace Medlemskab_1stSemester
         ItemCollection users;
         ListBox listbox;
         ListBox textbox;
-        public AddUserWin(ItemCollection users, ListBox listbox, ListBox textbox) //For at oprette fra et andet vindue skal man helst sende lister og tekstboke videre til ne constructor
+
+        //For at oprette fra et andet vindue skal man helst sende lister og tekstboke videre til en constructor
+        public AddUserWin(ItemCollection users, ListBox listbox, ListBox textbox)
         {
             this.users = users;
             this.listbox = listbox;
@@ -32,35 +34,44 @@ namespace Medlemskab_1stSemester
             InitializeComponent();
         }
 
-        private void AddUser_Click(object sender, RoutedEventArgs e)
+        private void AddUser_Click(object sender, RoutedEventArgs e) //Opret
         {
-            string titleInput = UserText.Text; //Det der skrives i tekstboksen
-            if (!string.IsNullOrEmpty(titleInput) && !titleInput.Any(x => Char.IsNumber(x))) //Første check hvis feltet ikke er tomt, andet check hvis der ikke er numre skrevet ned
+            //Det der skrives i tekstboksen
+            string titleInput = UserText.Text;
+
+            //Første check hvis feltet ikke er tomt, andet check hvis der ikke er numre skrevet ned
+            if (!string.IsNullOrEmpty(titleInput) && !titleInput.Any(x => Char.IsNumber(x)))
             {
-                string student;
-                string typeStudent;
-                if (StudentCheck.IsChecked == true) //Hvis checkboksen er markeret, er det en student
+
+                string student = "Privat";
+                string typeStudent = student.ToLower();
+
+                //Hvis checkboksen er markeret, er det en student
+                if (StudentCheck.IsChecked == true)
                 {
                     student = "Student";
                     typeStudent = "studerende";
                 }
-                else //Hvis ikke er det en privat
-                {
-                    student = "Privat";
-                    typeStudent = student.ToLower();
-                }
-                Member member = new Member(titleInput, student); //laves et nyt Member objekt med navn og student/privat
-                users.mlist.Add(member); //Bliver tilføjet til listen
+
+                //laves et nyt Member objekt med navn, student/privat og status på tilmelding som ikke er lavet endnu
+                Member member = new Member(titleInput,student,false);
+
+                //Bliver tilføjet til listen
+                users.mlist.Add(member);
                 int index = Admin.GetListTotal(users,true); //Find hvor mange medlemmer
 
-                listbox.Items.Add(index + ". " + member.name + " | " + member.isStudent); //Bliver tilføjet til medlemsboksen
-                textbox.Items.Add($"{Admin.name}: {UserText.Text} var oprettet som {typeStudent} medlem"); //Bliver tilføjet til informationsboksen
+                //Bliver tilføjet til listboksen
+                listbox.Items.Add(index + ". " + member.name + " | " + member.isStudent);
+
+                //Og til informationsboksen
+                textbox.Items.Add($"{Admin.name}: {UserText.Text} var oprettet som {typeStudent} medlem");
                 this.Close();
             }
-            if(titleInput.Any(x => Char.IsNumber(x))) MessageBox.Show("Vær venligst ikke at bruge numre i navnefeltet"); //Hvis der er skrevet numre, vises dette
+            //Hvis der er skrevet numre, vises dette
+            if (titleInput.Any(x => Char.IsNumber(x))) MessageBox.Show("Vær venligst ikke at bruge numre i navnefeltet");
         }
 
-        private void CancelUser_Click(object sender, RoutedEventArgs e) //Hvis man trykker på "annuller"
+        private void CancelUser_Click(object sender, RoutedEventArgs e) //Annuller
         {
             this.Close();
         }

@@ -1,0 +1,20 @@
+﻿<Window x:Class="Medlemskab_1stSemester.EditRegistrationWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Medlemskab_1stSemester"
+        mc:Ignorable="d"
+        Title="Tilmelding" Height="450" Width="650">
+    <Grid>
+        <ListBox x:Name="AvailableMembers" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="67,74,393,124"/>
+        <TextBlock x:Name="ActivityText" HorizontalAlignment="Center" Margin="0,18,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="26" Width="285" FontSize="16" FontWeight="Bold" TextAlignment="Center" RenderTransformOrigin="0.508,0.517"/>
+        <ListBox x:Name="OccupiedMembers" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="397,74,63,124"/>
+        <Button x:Name="Assign" Content="Tilmeld" HorizontalAlignment="Left" Margin="122,328,0,0" VerticalAlignment="Top" Width="80" Click="Assign_Click"/>
+        <Button x:Name="Remove" Content="Afmeld" HorizontalAlignment="Left" Margin="452,328,0,0" VerticalAlignment="Top" Width="80" Click="Remove_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="104,49,0,0" TextWrapping="Wrap" Text="Ledige medlemmer" VerticalAlignment="Top" TextAlignment="Center" Width="116"/>
+        <TextBlock HorizontalAlignment="Left" Margin="422,49,0,0" TextWrapping="Wrap" Text="Tilmeldte medlemmer" VerticalAlignment="Top" TextAlignment="Center" Width="140"/>
+        <Button x:Name="GoBack" Content="Tilbage" HorizontalAlignment="Center" Margin="0,369,0,0" VerticalAlignment="Top" Width="80" Click="GoBack_Click"/>
+
+    </Grid>
+</Window>
