@@ -197,5 +197,28 @@ namespace Medlemskab_1stSemester
             this.Close();
             window.ShowDialog();
         }
+
+        //Tooltips er oprettet som (?), hvor så snart musen rammer den, viser den information
+        //Denne funktion kører, når musen er indenfor teksten
+        private void AvailableMemberInfo_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Mouse.OverrideCursor = Cursors.Help; //Musen bliver ændret til et ? ikon
+        }
+
+        //Denne funktion kører, når musen er udenfor teksten
+        private void AvailableMemberInfo_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Mouse.OverrideCursor = null; //Går tilbage til default
+        }
+
+        private void AssignedMemberInfo_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Mouse.OverrideCursor = Cursors.Help;
+        }
+
+        private void AssignedMemberInfo_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Mouse.OverrideCursor = null;
+        }
     }
 }

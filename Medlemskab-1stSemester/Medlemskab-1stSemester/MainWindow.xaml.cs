@@ -28,12 +28,17 @@ namespace Medlemskab_1stSemester
         public MainWindow()
         {
             InitializeComponent();
-            if (!Admin.loggedIn) //Når vinduet åbnes for første gang, bruges til at tilføjet medlemmer, kurser og tilmeldinger
+
+            //Når vinduet åbnes for første gang, bruges til at tilføjet medlemmer, kurser og tilmeldinger
+            if (!Admin.loggedIn)
             {
                 Admin.loggedIn = true;
-                Arrays arrays = new Arrays(); //Nyt objekt fra Arrays klassen
 
-                for(int i = 0; i < arrays.membersList.Length / 2; i++) //Der oprettes medlemmer i listen med navn og student/privat
+                //Nyt objekt fra Arrays klassen
+                Arrays arrays = new Arrays();
+
+                //Der oprettes medlemmer i listen med navn og student/privat
+                for (int i = 0; i < arrays.membersList.Length / 2; i++)
                 {
                     //Et nyt objekt med navn og student/privat ved hjælp af en multi-dimensionel array
                     Member member = new Member(arrays.membersList[0, i], arrays.membersList[1, i],false);
@@ -120,10 +125,14 @@ namespace Medlemskab_1stSemester
 
         private void DeleteActivity_Click(object sender, RoutedEventArgs e) //Slet kurs
         {
+            //Får den kurs der er valgt som integer
             int index = ActivityList.SelectedIndex;
 
+            //Får hvor mange medlemmer der er tilmeldt til kursen
+            int counter = activities.alist[index].list.Count;
+
             //Hvis SelectedIndex er andet end -1 og hvis der er stadig er tilmeldte i kursen
-            if (index != -1 && activities.alist[index].list.Count < 1)
+            if (index != -1 && counter < 1)
             {
                 //Få kursets navn
                 string name = activities.alist[index].name;
@@ -150,8 +159,9 @@ namespace Medlemskab_1stSemester
                     AddLog.Items.Add(Admin.name + ": " + name + " var slettet fra listen med kurser");
                 }
             }
+
             //Hvis der er tilmeldte til kursen du prøver at slette skal du første afmelde alle fra den før du gør det
-            if (activities.alist[index].list.Count > 0) MessageBox.Show("Vær venligst at afmelde alle tilmeldte til denne kurs, før du sletter den");
+            if (counter > 0) MessageBox.Show("Vær venligst at afmelde alle tilmeldte til denne kurs, før du sletter den");
 
             //Hvis ingen er valgt i listen
             else if (index == -1) MessageBox.Show("Vælg et kurs ved at klikke på brugeren i listen for at slette");
@@ -219,6 +229,43 @@ namespace Medlemskab_1stSemester
 
             //Hvis ingen er valgt i listen
             else if (index == -1) MessageBox.Show("Vælg en bruger ved at klikke på personen i listen for at slette");
+        }
+
+        /////////////////////////////////////
+        //////////////Tooltips///////////////
+        /////////////////////////////////////
+
+        //Tooltips er oprettet som (?), hvor så snart musen rammer den, viser den information
+        //Denne funktion kører, når musen er indenfor teksten
+        private void MemberInfo_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Mouse.OverrideCursor = Cursors.Help; //Musen bliver ændret til et ? ikon
+        }
+
+        //Denne funktion kører, når musen er udenfor teksten
+        private void MemberInfo_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Mouse.OverrideCursor = null; //Går tilbage til default
+        }
+
+        private void ActivityInfo_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Mouse.OverrideCursor = Cursors.Help;
+        }
+
+        private void ActivityInfo_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Mouse.OverrideCursor = null;
+        }
+
+        private void AssignInfo_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Mouse.OverrideCursor = Cursors.Help;
+        }
+
+        private void AssignInfo_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Mouse.OverrideCursor = null;
         }
     }
 }

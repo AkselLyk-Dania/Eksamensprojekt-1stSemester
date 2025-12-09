@@ -12,9 +12,11 @@
         <ListBox x:Name="OccupiedMembers" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="397,74,63,124"/>
         <Button x:Name="Assign" Content="Tilmeld" HorizontalAlignment="Left" Margin="122,328,0,0" VerticalAlignment="Top" Width="80" Click="Assign_Click"/>
         <Button x:Name="Remove" Content="Afmeld" HorizontalAlignment="Left" Margin="452,328,0,0" VerticalAlignment="Top" Width="80" Click="Remove_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="104,49,0,0" TextWrapping="Wrap" Text="Ledige medlemmer" VerticalAlignment="Top" TextAlignment="Center" Width="116"/>
-        <TextBlock HorizontalAlignment="Left" Margin="422,49,0,0" TextWrapping="Wrap" Text="Tilmeldte medlemmer" VerticalAlignment="Top" TextAlignment="Center" Width="140"/>
+        <TextBlock HorizontalAlignment="Left" Margin="67,49,0,0" TextWrapping="Wrap" Text="Ledige medlemmer" VerticalAlignment="Top" TextAlignment="Center" Width="152" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" Margin="397,49,0,0" TextWrapping="Wrap" Text="Tilmeldte medlemmer" VerticalAlignment="Top" TextAlignment="Center" Width="165" FontSize="16"/>
         <Button x:Name="GoBack" Content="Tilbage" HorizontalAlignment="Center" Margin="0,369,0,0" VerticalAlignment="Top" Width="80" Click="GoBack_Click"/>
+        <TextBlock ToolTip="Her er listen med alle medlemmer der er ledige, som ikke er tilmeldt endnu." ToolTipService.InitialShowDelay="200" x:Name="AvailableMemberInfo" HorizontalAlignment="Left" Margin="219,49,0,0" TextWrapping="Wrap" Text="(?)" VerticalAlignment="Top" Width="22" MouseEnter="AvailableMemberInfo_MouseEnter" MouseLeave="AvailableMemberInfo_MouseLeave" FontSize="16" RenderTransformOrigin="-0.146,0.59"/>
+        <TextBlock ToolTip="Her er listen med alle tilmeldte medlemmer. Der kan maks være 5 tilmeldte." ToolTipService.InitialShowDelay="200" x:Name="AssignedMemberInfo" HorizontalAlignment="Left" Margin="562,49,0,0" TextWrapping="Wrap" Text="(?)" VerticalAlignment="Top" Width="22" MouseEnter="AssignedMemberInfo_MouseEnter" MouseLeave="AssignedMemberInfo_MouseLeave" FontSize="16" RenderTransformOrigin="-0.146,0.59"/>
 
     </Grid>
 </Window>

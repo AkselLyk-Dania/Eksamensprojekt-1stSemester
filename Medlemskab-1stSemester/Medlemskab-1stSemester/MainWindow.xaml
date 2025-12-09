@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Dansk Data" Height="450" Width="900">
     <Grid>
-        <StackPanel>
+        <StackPanel Margin="294,0,294,309">
             <Image Source="/Resources/Logo.png" Width="220" Height="157" Margin="0,-20,0,0"/>
         </StackPanel>
 
@@ -21,8 +21,11 @@
         <Button x:Name="EditActivity" Content="Rediger Kurs" HorizontalAlignment="Left" Margin="714,300,0,0" VerticalAlignment="Top" Height="19" Width="96" Click="EditActivity_Click"/>
         <Button x:Name="DeleteActivity" Content="Slet Kurs" HorizontalAlignment="Left" Margin="714,319,0,0" VerticalAlignment="Top" Height="19" Width="96" Click="DeleteActivity_Click"/>
         <Button x:Name="Registration" Content="Gå til tilmelding" HorizontalAlignment="Center" Margin="0,354,0,0" VerticalAlignment="Top" Height="23" Width="100" Click="Registration_Click"/>
-        <TextBlock x:Name="ActivityTitle" HorizontalAlignment="Left" Margin="88,21,0,0" TextWrapping="Wrap" Text="Medlemmer:" VerticalAlignment="Top" Width="100" FontSize="16"/>
-        <TextBlock HorizontalAlignment="Left" Margin="747,21,0,0" TextWrapping="Wrap" Text="Kurser:" VerticalAlignment="Top" Width="63" FontSize="16"/>
+        <TextBlock x:Name="MemberTitle" HorizontalAlignment="Left" Margin="88,21,0,0" TextWrapping="Wrap" Text="Medlemmer:" VerticalAlignment="Top" Width="100" FontSize="16"/>
+        <TextBlock x:Name="ActivityTitle" HorizontalAlignment="Left" Margin="730,21,0,0" TextWrapping="Wrap" Text="Kurser:" VerticalAlignment="Top" Width="64" FontSize="16" TextAlignment="Center"/>
         <Button x:Name="ChangeAdmin" Content="Skift Administrator" HorizontalAlignment="Left" Margin="24,367,0,0" VerticalAlignment="Top" Width="112" Click="ChangeAdmin_Click"/>
+        <TextBlock ToolTip="Her er listen med all medlemmer der er oprettet." ToolTipService.InitialShowDelay="200" x:Name="MemberInfo" HorizontalAlignment="Left" Margin="193,21,0,0" TextWrapping="Wrap" Text="(?)" VerticalAlignment="Top" Width="21" FontSize="16" MouseEnter="MemberInfo_MouseEnter" MouseLeave="MemberInfo_MouseLeave"/>
+        <TextBlock ToolTip="Her er listen med alle aktiviteter der er oprettet" ToolTipService.InitialShowDelay="200" x:Name="ActivityInfo" HorizontalAlignment="Left" Margin="799,21,0,0" TextWrapping="Wrap" Text="(?)" VerticalAlignment="Top" Width="21" FontSize="16" MouseEnter="ActivityInfo_MouseEnter" MouseLeave="ActivityInfo_MouseLeave" RenderTransformOrigin="-1.19,0.581"/>
+        <TextBlock ToolTip="Tilmeld et ledigt medlem til et kurs. For at tilmelde skal der minimum være 5 oprettede kurser." ToolTipService.InitialShowDelay="200" x:Name="AssignInfo" HorizontalAlignment="Left" Margin="505,353,0,0" TextWrapping="Wrap" Text="(?)" VerticalAlignment="Top" Width="21" FontSize="16" MouseEnter="AssignInfo_MouseEnter" MouseLeave="AssignInfo_MouseLeave"/>
     </Grid>
 </Window>
