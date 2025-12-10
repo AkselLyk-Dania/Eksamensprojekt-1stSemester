@@ -53,7 +53,7 @@ namespace Medlemskab_1stSemester
                 //Der oprettes kurser i listen med kurser
                 for (int i = 0; i < arrays.activitiesList.Length; i++)
                 {
-                    //Ny tilmeldingsliste til hvert kurs
+                    //Ny tilmeldingsliste til hvert kursus
                     List<Member> list = new List<Member>();
                     Activity activity = new Activity(arrays.activitiesList[i],list);
                     activities.alist.Add(activity);
@@ -61,7 +61,7 @@ namespace Medlemskab_1stSemester
                     //Bliver også skrevet i listboksen med kurser
                     ActivityList.Items.Add($"{i + 1}. {activity.name}");
 
-                    //Den første kurs i listen bliver fyldt ud med tilmeldinger
+                    //Den første kursus i listen bliver fyldt ud med tilmeldinger
                     if (i == 0)
                     {
                         for(int l = 0; l < 5; l++) //For loop der vil gå igennem de første 5 ledige medlemmer
@@ -106,13 +106,13 @@ namespace Medlemskab_1stSemester
         ////////Håntering af kurser//////////
         /////////////////////////////////////
 
-        private void AddActivity_Click(object sender, RoutedEventArgs e) //Opret kurs
+        private void AddActivity_Click(object sender, RoutedEventArgs e) //Opret kursus
         {
             AddActivityWin window = new AddActivityWin(activities,ActivityList,AddLog);
             window.ShowDialog();
         }
 
-        private void EditActivity_Click(object sender, RoutedEventArgs e) //Rediger kurs
+        private void EditActivity_Click(object sender, RoutedEventArgs e) //Rediger kursus
         {
             //SelectedIndex er index på hvilken bruger man har valgt fra listen som integer hvor den første vil started med 0, hvis ingen er valgt returnerer -1
             if (ActivityList.SelectedIndex != -1)
@@ -120,12 +120,12 @@ namespace Medlemskab_1stSemester
                 EditActivityWin window = new EditActivityWin(activities, ActivityList, AddLog, ActivityList.SelectedIndex);
                 window.ShowDialog();
             }
-            else MessageBox.Show("Tryk venligst på et kurs i listen for at redigere");
+            else MessageBox.Show("Tryk venligst på et kursus i listen for at redigere");
         }
 
-        private void DeleteActivity_Click(object sender, RoutedEventArgs e) //Slet kurs
+        private void DeleteActivity_Click(object sender, RoutedEventArgs e) //Slet kursus
         {
-            //Får den kurs der er valgt som integer
+            //Får det kursus der er valgt som integer
             int index = ActivityList.SelectedIndex;
 
             //Får hvor mange medlemmer der er tilmeldt til kursen
@@ -138,7 +138,7 @@ namespace Medlemskab_1stSemester
                 string name = activities.alist[index].name;
 
                 //Et "er du sikker" vindue, hvor man enten trykker på yes eller no
-                if (MessageBox.Show($"Er du sikker på at du vil slette {name}?", "Slet Kurs", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                if (MessageBox.Show($"Er du sikker på at du vil slette {name}?", "Slet Kursus", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     //Fjern brugeren fra listboxen
                     activities.alist.RemoveAt(index);
@@ -161,10 +161,10 @@ namespace Medlemskab_1stSemester
             }
 
             //Hvis der er tilmeldte til kursen du prøver at slette skal du første afmelde alle fra den før du gør det
-            if (counter > 0) MessageBox.Show("Vær venligst at afmelde alle tilmeldte til denne kurs, før du sletter den");
+            if (counter > 0) MessageBox.Show("Vær venligst at afmelde alle tilmeldte til dette kursus, før du sletter den");
 
             //Hvis ingen er valgt i listen
-            else if (index == -1) MessageBox.Show("Vælg et kurs ved at klikke på brugeren i listen for at slette");
+            else if (index == -1) MessageBox.Show("Vælg et kursus ved at klikke på brugeren i listen for at slette");
         }
 
         /////////////////////////////////////
@@ -225,7 +225,7 @@ namespace Medlemskab_1stSemester
                 }
             }
             //Hvis medlem er tilmeldt, skal du først afmelde før du sletter
-            if (active) MessageBox.Show("Vær venligst at afmelde personen fra den tilmeldte kurs, før du sletter");
+            if (active) MessageBox.Show("Vær venligst at afmelde personen fra det tilmeldte kursus, før du sletter");
 
             //Hvis ingen er valgt i listen
             else if (index == -1) MessageBox.Show("Vælg en bruger ved at klikke på personen i listen for at slette");

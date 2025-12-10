@@ -31,7 +31,7 @@ namespace Medlemskab_1stSemester
             InitializeComponent();
         }
 
-        private void AddActivity_Click(object sender, RoutedEventArgs e) //Opret kurs
+        private void AddActivity_Click(object sender, RoutedEventArgs e) //Opret kursus
         {
             //Det der skrives i tekstboksen
             string titleInput = ActivityText.Text;
@@ -39,7 +39,7 @@ namespace Medlemskab_1stSemester
             //Første check er hvis tekstboksen ikke er tom, andet er hvis numre er brugt
             if (!string.IsNullOrEmpty(titleInput) && !titleInput.Any(x => Char.IsNumber(x)))
             {
-                //Kurs bliver oprettet med navn der er skrevet og med en tom liste
+                //Kursus bliver oprettet med navn der er skrevet og med en tom liste
                 List<Member> list = new List<Member>();
                 Activity activity = new Activity(titleInput, list);
                 activities.alist.Add(activity);
@@ -47,11 +47,11 @@ namespace Medlemskab_1stSemester
                 //En metode bliver brugt, som tæller alle kurser i listen
                 int index = Admin.GetListTotal(activities, false);
 
-                //Kurs bliver tilføjet til listboksen
+                //Kursus bliver tilføjet til listboksen
                 listbox.Items.Add($"{index}. {activity.name}");
 
                 //Bliver også tilføjet til informationsboksen
-                textbox.Items.Add($"{Admin.name}: {titleInput} var oprettet som nyt kurs");
+                textbox.Items.Add($"{Admin.name}: {titleInput} var oprettet som nyt kursus");
                 this.Close();
             }
 

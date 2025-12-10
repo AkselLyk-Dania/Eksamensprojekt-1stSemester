@@ -14,6 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Xml.Linq;
 
+//Alle syntakser, klasser, funktioner og metoder er skrevet af Aksel Lykkegaard
+
 namespace Medlemskab_1stSemester
 {
     /// <summary>
@@ -36,7 +38,7 @@ namespace Medlemskab_1stSemester
             this.index = index;
             InitializeComponent();
 
-            //Titlen ændres til den kurs man har valgt at administrere
+            //Titlen ændres til den kursus man har valgt at administrere
             //Hvis der er mere end 5 medlemmer tilmeldt vil der stå (fuld)
             if(activities.alist[index].list.Count >= 5) ActivityText.Text = $"Tilmelding for {activities.alist[index].name} (Fuld)";
             else ActivityText.Text = $"Tilmelding for {activities.alist[index].name}";
@@ -85,15 +87,23 @@ namespace Medlemskab_1stSemester
                 //Finder navn i listen
                 string selectedName = listedMembers.ilist[selectedIndex].name;
 
-                //Hvis navn er ens med navn i listen af all medlemmer
+                
                 for (int i = 0; i < members.mlist.Count; i++)
                 {
+                    //Hvis navn er ens med navn i listen af all medlemmer
                     if (members.mlist[i].name == selectedName)
                     {
-                        activities.alist[index].list.Add(members.mlist[i]); //Bliver tilføjet til tilmeldingslisten
-                        OccupiedMembers.Items.Add($"{OccupiedMembers.Items.Count + 1}. {members.mlist[i].name}"); //Skrevet på tekstboksen a tilmeldte
-                        textbox.Items.Add($"{Admin.name}: {selectedName} var tilmeldt til {activities.alist[index].name}"); //Bliver skrevet i informationsboksen
-                        members.mlist[i].isActive = true; //Denne medlem er nu tilmeldt
+                        //Bliver tilføjet til tilmeldingslisten
+                        activities.alist[index].list.Add(members.mlist[i]);
+
+                        //Skrevet på tekstboksen af tilmeldte
+                        OccupiedMembers.Items.Add($"{OccupiedMembers.Items.Count + 1}. {members.mlist[i].name}");
+
+                        //Bliver skrevet i informationsboksen
+                        textbox.Items.Add($"{Admin.name}: {selectedName} var tilmeldt til {activities.alist[index].name}");
+
+                        //Denne medlem er nu tilmeldt
+                        members.mlist[i].isActive = true;
 
 
                         //Listen i hovedmenuen bliver opdateret, for at vise at den er (fuld) hvis der er 5 personer tilmeldt
@@ -105,6 +115,7 @@ namespace Medlemskab_1stSemester
                             {
                                 //Bliver tilføjet til listboksen
                                 listbox.Items.Add($"{l + 1}. {activities.alist[l].name}");
+
                                 //Hvis kursen som er tilføjet har maks antal tilmeldinger, vil der vises (fuld)
                                 if (activities.alist[l].list.Count >= 5) listbox.Items[l] = listbox.Items[l] + " (Fuld)";
                             }
@@ -131,7 +142,10 @@ namespace Medlemskab_1stSemester
                 }
 
             }
-            if (assignedMembers >= 5) MessageBox.Show("Denne kurs er fyldt op med maks 5 medlemmer");
+            //Hvis der er flere end 5 medlemmer
+            if (assignedMembers >= 5) MessageBox.Show("Dette kursus er fyldt op med maks 5 medlemmer");
+
+            //Hvis der ikke er trykket på et medlem
             else if(selectedIndex == -1) MessageBox.Show("Tryk venligst på en person i medlemslisten for at tilmelde");
         }
 

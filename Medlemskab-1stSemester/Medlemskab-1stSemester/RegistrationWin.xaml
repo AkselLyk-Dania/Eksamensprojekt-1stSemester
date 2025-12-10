@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Vælg kurs" Height="300" Width="500">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="80,31,0,0" TextWrapping="Wrap" Text="Vælg et kurs for at administrere tilmelding" VerticalAlignment="Top" Width="324" FontSize="16" TextAlignment="Center"/>
+        <TextBlock HorizontalAlignment="Left" Margin="80,31,0,0" TextWrapping="Wrap" Text="Vælg et kursus for at administrere tilmelding" VerticalAlignment="Top" Width="324" FontSize="16" TextAlignment="Center"/>
         <ListBox x:Name="ActivityList" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="80,57,100,85"/>
         <Button x:Name="ToRegistration" Content="Næste" HorizontalAlignment="Left" Margin="287,214,0,0" VerticalAlignment="Top" Width="88" Click="ToRegistration_Click"/>
         <Button x:Name="CancelRegistration" Content="Annuller" HorizontalAlignment="Left" Margin="113,214,0,0" VerticalAlignment="Top" Width="88" Click="CancelRegistration_Click"/>

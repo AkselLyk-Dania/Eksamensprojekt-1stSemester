@@ -19,9 +19,9 @@ namespace Medlemskab_1stSemester
     /// </summary>
     public partial class EditActivityWin : Window
     {
+        ItemCollection activities;
         ListBox listbox;
         ListBox textbox;
-        ItemCollection activities;
         public int index;
         public EditActivityWin(ItemCollection activities, ListBox listbox, ListBox textbox, int index)
         {

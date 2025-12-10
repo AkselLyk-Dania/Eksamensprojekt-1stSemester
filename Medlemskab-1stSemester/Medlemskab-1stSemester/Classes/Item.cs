@@ -20,7 +20,7 @@ namespace Medlemskab_1stSemester
 
     public class Activity : Item //For kurser, som nedarves af Item
     {
-        public List<Member> list = new List<Member>(); //Hvert kurs har sin egen liste, hvor medlemmer bliver tilmeldt
+        public List<Member> list = new List<Member>(); //Hvert kursus har sin egen liste, hvor medlemmer bliver tilmeldt
 
         public Activity(string name, List<Member> list) : base(name) //Constructor
         {

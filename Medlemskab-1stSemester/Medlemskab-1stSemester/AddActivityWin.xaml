@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Medlemskab_1stSemester"
         mc:Ignorable="d"
-        Title="Opret Nyt Kurs" Height="250" Width="450">
+        Title="Opret Nyt Kursus" Height="250" Width="450">
     <Grid>
         <TextBlock Grid.Column="0" Text="Navn:" FontSize="15" VerticalAlignment="Top" Margin="46,86,346,0" Height="24"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,36,0,0" TextWrapping="Wrap" Text="Opret Nyt Kurs" VerticalAlignment="Top" Height="24" Width="118" FontWeight="Bold" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,38,0,0" TextWrapping="Wrap" Text="Opret Nyt Kursus" VerticalAlignment="Top" Height="24" Width="136" FontWeight="Bold" FontSize="16" TextAlignment="Center"/>
 
         <TextBox x:Name="ActivityText" HorizontalAlignment="Center" Margin="0,83,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206" Height="30"/>
         <Button x:Name="AddActivity" Content="Opret" HorizontalAlignment="Left" Margin="66,157,0,0" VerticalAlignment="Top" Height="26" Width="100" Click="AddActivity_Click"/>
