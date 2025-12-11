@@ -86,8 +86,6 @@ namespace Medlemskab_1stSemester
 
                 //Finder navn i listen
                 string selectedName = listedMembers.ilist[selectedIndex].name;
-
-                
                 for (int i = 0; i < members.mlist.Count; i++)
                 {
                     //Hvis navn er ens med navn i listen af all medlemmer
@@ -97,7 +95,7 @@ namespace Medlemskab_1stSemester
                         activities.alist[index].list.Add(members.mlist[i]);
 
                         //Skrevet på tekstboksen af tilmeldte
-                        OccupiedMembers.Items.Add($"{OccupiedMembers.Items.Count + 1}. {members.mlist[i].name}");
+                        OccupiedMembers.Items.Add($"{OccupiedMembers.Items.Count+1}. {members.mlist[i].name}");
 
                         //Bliver skrevet i informationsboksen
                         textbox.Items.Add($"{Admin.name}: {selectedName} var tilmeldt til {activities.alist[index].name}");
@@ -125,8 +123,9 @@ namespace Medlemskab_1stSemester
                     }
                 }
 
+                if (activities.alist[index].list.Count >= 5) ActivityText.Text = $"Tilmelding for {activities.alist[index].name} (Fuld)";
+
                 //Listen af ledige bliver nu opdateret
-                if(activities.alist[index].list.Count >= 5) ActivityText.Text = $"Tilmelding for {activities.alist[index].name} (Fuld)";
                 AvailableMembers.Items.Clear();
                 listedMembers.ilist.Clear();
                 int counter = 1;
@@ -171,6 +170,7 @@ namespace Medlemskab_1stSemester
 
                 //Listen med ledige medlemmer bliver opdateret
                 AvailableMembers.Items.Clear();
+                listedMembers.ilist.Clear();
                 int counter = 1;
                 for (int i = 0; i < members.mlist.Count; i++)
                 {
@@ -178,7 +178,7 @@ namespace Medlemskab_1stSemester
                     {
                         Item item = new Item(members.mlist[i].name);
                         listedMembers.ilist.Add(item);
-                        AvailableMembers.Items.Add($"{counter}. {members.mlist[i].name}");
+                        AvailableMembers.Items.Add($"{counter}. {item.name}");
                         counter++;
                     }
                 }

@@ -25,7 +25,7 @@ namespace Medlemskab_1stSemester
         ListBox listbox;
         ListBox textbox;
 
-        //For at oprette fra et andet vindue skal man helst sende lister og tekstboke videre til en constructor
+        //Variabler fro objektet bliver genkendt som det samme, som klasserne der er oprette for oven
         public AddUserWin(ItemCollection users, ListBox listbox, ListBox textbox)
         {
             this.users = users;
